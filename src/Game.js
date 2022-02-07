@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './Game.css'
+import randomWord from './random-word'
 
 const Game = () => {
-  const correctWord = 'PENIS'
+  const correctWord = randomWord.toUpperCase()
 
   const [inputtedWord, setInputtedWord] = useState('')
   const [submittedWords, setSubmittedWords] = useState([])
@@ -37,8 +38,8 @@ const Game = () => {
   return (
     <div className="container">
       <div>
-        {submittedWords.map((word) => (
-          <div className="word" key={word}>
+        {submittedWords.map((word, index) => (
+          <div className="word" key={index}>
             {word}
           </div>
         ))}
