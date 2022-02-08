@@ -78,6 +78,7 @@ const Game = () => {
         updateKeyboardKeys(letter, 'missed')
         className = 'letter yellow'
       } else {
+        updateKeyboardKeys(letter, 'absent')
         className = 'letter'
       }
 

@@ -29,6 +29,10 @@
   background-color: yellow;
 }
 
+.key.absent {
+  background-color: grey;
+}
+
 .form {
   margin-bottom: 100px;
 }
