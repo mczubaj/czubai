@@ -76,10 +76,6 @@ const keys = [
     status: '',
   },
   {
-    key: 'J',
-    status: '',
-  },
-  {
     key: 'Z',
     status: '',
   },
