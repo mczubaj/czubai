@@ -115,8 +115,8 @@ const Game = () => {
     setGameResult('')
     setCurrentTry(1)
     setIsValidWordWarning(false)
-    isCharLimitWarning(false)
-    keyboardKeys.forEach((key) => (key.status = ''))
+    setIsCharLimitWarning(false)
+    keyboardKeys.forEach((row) => row.forEach((key) => (key.status = '')))
   }
 
   const handleKeyboardClick = (key) => {
@@ -162,9 +162,11 @@ const Game = () => {
           )}
         </form>
       )}
-      {gameResult === 'won' && <div className="victory-message">YOU WIN!!</div>}
+      {gameResult === 'won' && (
+        <div className="result-message victory">YOU WIN!!</div>
+      )}
       {gameResult === 'lost' && (
-        <div className="defeat-message">YOU LOSE :(</div>
+        <div className="result-message defeat">YOU LOSE :(</div>
       )}
       {gameResult && (
         <button type="button" onClick={() => resetGame()}>

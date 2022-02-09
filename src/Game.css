@@ -45,21 +45,22 @@
   font-size: small;
 }
 
-.victory-message {
-  color: green;
+.result-message {
   font-size: large;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.defeat-message {
+.result-message.victory {
+  color: green;
+}
+
+.result-message.defeat {
   color: red;
-  font-size: large;
-  margin-bottom: 30px;
 }
 
 .keyboard-container {
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
 }
 
 .keyboard-row {
