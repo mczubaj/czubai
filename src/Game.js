@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import './Game.css'
-import randomWord from './random-word'
+import getRandomWord from './get-random-word'
 import { v4 as uuidv4 } from 'uuid'
 import englishWords from 'an-array-of-english-words'
 import keys from './keyboard-keys'
 
 const Game = () => {
-  const correctWord = randomWord.toUpperCase()
   const maxTries = 6
   const fiveLetterEnglishWords = englishWords.filter(
     (word) => word.length === 5
@@ -14,6 +13,7 @@ const Game = () => {
 
   const [inputtedWord, setInputtedWord] = useState('')
   const [submittedWords, setSubmittedWords] = useState([])
+  const [correctWord, setCorrectWord] = useState(getRandomWord().toUpperCase())
   const [gameResult, setGameResult] = useState('')
   const [currentTry, setCurrentTry] = useState(1)
   const [isValidWordWarning, setIsValidWordWarning] = useState(false)
@@ -93,16 +93,23 @@ const Game = () => {
   }
 
   const updateKeyboardKeys = (letter, status) => {
-    const keysCopy = keyboardKeys
-    const keyToUpdate = keysCopy.find((key) => key.key === letter)
+    const keyToUpdate = keyboardKeys.find((key) => key.key === letter)
 
     if (keyToUpdate.status === 'found') {
       return
     }
 
     keyToUpdate.status = status
+    setKeyboardKeys(keyboardKeys)
+  }
 
-    setKeyboardKeys(keysCopy)
+  const resetGame = () => {
+    setCorrectWord(getRandomWord().toUpperCase())
+    setInputtedWord('')
+    setSubmittedWords([])
+    setGameResult('')
+    setCurrentTry(1)
+    keyboardKeys.forEach((key) => (key.status = ''))
   }
 
   return (
@@ -131,6 +138,12 @@ const Game = () => {
       {gameResult === 'lost' && (
         <div className="defeat-message">YOU LOSE :(</div>
       )}
+      {gameResult && (
+        <button type="button" onClick={() => resetGame()}>
+          PLAY AGAIN
+        </button>
+      )}
+
       <div className="keyboard-container">
         {keyboardKeys.map((key) => (
           <div className={`key ${key.status}`} key={uuidv4()}>

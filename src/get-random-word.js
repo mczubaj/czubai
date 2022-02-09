@@ -1,9 +1,9 @@
 import { words } from 'popular-english-words'
 
 const fiveLetterWords = words
-  .getMostPopular(3000)
+  .getMostPopular(5000)
   .filter((word) => word.length === 5)
-const randomWord =
+const getRandomWord = () =>
   fiveLetterWords[Math.floor(Math.random() * fiveLetterWords.length)]
 
-export default randomWord
+export default getRandomWord
