@@ -18,6 +18,7 @@ const Game = () => {
   const [currentTry, setCurrentTry] = useState(1)
   const [isValidWordWarning, setIsValidWordWarning] = useState(false)
   const [keyboardKeys, setKeyboardKeys] = useState(keys)
+  const [isCharLimitWarning, setIsCharLimitWarning] = useState(false)
 
   const handleInputChange = (event) => {
     isValidWordWarning && setIsValidWordWarning(false)
@@ -25,7 +26,7 @@ const Game = () => {
   }
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event && event.preventDefault()
 
     const isValidWordInputted = fiveLetterEnglishWords.some(
       (word) => word.toUpperCase() === inputtedWord
@@ -93,7 +94,11 @@ const Game = () => {
   }
 
   const updateKeyboardKeys = (letter, status) => {
-    const keyToUpdate = keyboardKeys.find((key) => key.key === letter)
+    let keyToUpdate
+    for (const row of keyboardKeys) {
+      keyToUpdate = row.find((key) => key.key === letter)
+      if (keyToUpdate) break
+    }
 
     if (keyToUpdate.status === 'found') {
       return
@@ -109,7 +114,27 @@ const Game = () => {
     setSubmittedWords([])
     setGameResult('')
     setCurrentTry(1)
+    setIsValidWordWarning(false)
+    isCharLimitWarning(false)
     keyboardKeys.forEach((key) => (key.status = ''))
+  }
+
+  const handleKeyboardClick = (key) => {
+    isValidWordWarning && setIsValidWordWarning(false)
+    isCharLimitWarning && setIsCharLimitWarning(false)
+
+    if (key === 'ENTER' && inputtedWord.length !== 5) {
+      setIsCharLimitWarning(true)
+    } else if (key === 'ENTER') {
+      handleSubmit()
+    } else if (key === '\u232b') {
+      inputtedWord.length > 0 &&
+        setInputtedWord(inputtedWord.substring(0, inputtedWord.length - 1))
+    } else if (inputtedWord.length === 5) {
+      setIsCharLimitWarning(true)
+    } else {
+      setInputtedWord(inputtedWord + key)
+    }
   }
 
   return (
@@ -130,7 +155,10 @@ const Game = () => {
             minLength="5"
           />
           {isValidWordWarning && (
-            <div className="valid-word-warning">Please enter valid words!</div>
+            <div className="input-warning">Please enter valid words!</div>
+          )}
+          {isCharLimitWarning && (
+            <div className="input-warning">Please enter 5 letters!</div>
           )}
         </form>
       )}
@@ -145,9 +173,17 @@ const Game = () => {
       )}
 
       <div className="keyboard-container">
-        {keyboardKeys.map((key) => (
-          <div className={`key ${key.status}`} key={uuidv4()}>
-            {key.key}
+        {keyboardKeys.map((row) => (
+          <div className="keyboard-row" key={uuidv4()}>
+            {row.map((key) => (
+              <div
+                className={`key ${key.status}`}
+                onClick={() => handleKeyboardClick(key.key)}
+                key={uuidv4()}
+              >
+                {key.key}
+              </div>
+            ))}
           </div>
         ))}
       </div>
