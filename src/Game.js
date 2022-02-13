@@ -163,10 +163,12 @@ const Game = () => {
         </form>
       )}
       {gameResult === 'won' && (
-        <div className="result-message victory">YOU WIN!!</div>
+        <div className="result-message victory">You win!!</div>
       )}
       {gameResult === 'lost' && (
-        <div className="result-message defeat">YOU LOSE :(</div>
+        <div className="result-message defeat">
+          You lose. :( The word was: "{correctWord}"
+        </div>
       )}
       {gameResult && (
         <button type="button" onClick={() => resetGame()}>
