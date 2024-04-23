@@ -1,5 +1,6 @@
 {
   "name": "czubordle",
+  "packageManager": "yarn@4.1.1",
   "version": "0.1.0",
   "homepage": "https://mczubaj.github.io/czubordle",
   "private": true,
@@ -11,6 +12,8 @@
     "popular-english-words": "^1.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router": "^6.23.0",
+    "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.0",
     "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
