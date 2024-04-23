@@ -138,58 +138,61 @@ const Game = () => {
   }
 
   return (
-    <div className="container">
-      <div>
-        {submittedWords.map((word) => (
-          <div className="word" key={uuidv4()}>
-            {word}
-          </div>
-        ))}
-      </div>
-      {!gameResult && (
-        <form className="form" onSubmit={handleSubmit}>
-          <input
-            value={inputtedWord}
-            onChange={handleInputChange}
-            maxLength="5"
-            minLength="5"
-          />
-          {isValidWordWarning && (
-            <div className="input-warning">Please enter valid words!</div>
-          )}
-          {isCharLimitWarning && (
-            <div className="input-warning">Please enter 5 letters!</div>
-          )}
-        </form>
-      )}
-      {gameResult === 'won' && (
-        <div className="result-message victory">You win!!</div>
-      )}
-      {gameResult === 'lost' && (
-        <div className="result-message defeat">
-          You lose. :( The word was: "{correctWord}"
+    <div>
+      <header>CZUBORDLE</header>
+      <div className="game-container">
+        <div>
+          {submittedWords.map((word) => (
+            <div className="word" key={uuidv4()}>
+              {word}
+            </div>
+          ))}
         </div>
-      )}
-      {gameResult && (
-        <button type="button" onClick={() => resetGame()}>
-          PLAY AGAIN
-        </button>
-      )}
-
-      <div className="keyboard-container">
-        {keyboardKeys.map((row) => (
-          <div className="keyboard-row" key={uuidv4()}>
-            {row.map((key) => (
-              <div
-                className={`key ${key.status}`}
-                onClick={() => handleKeyboardClick(key.key)}
-                key={uuidv4()}
-              >
-                {key.key}
-              </div>
-            ))}
+        {!gameResult && (
+          <form className="form" onSubmit={handleSubmit}>
+            <input
+              value={inputtedWord}
+              onChange={handleInputChange}
+              maxLength="5"
+              minLength="5"
+            />
+            {isValidWordWarning && (
+              <div className="input-warning">Please enter valid words!</div>
+            )}
+            {isCharLimitWarning && (
+              <div className="input-warning">Please enter 5 letters!</div>
+            )}
+          </form>
+        )}
+        {gameResult === 'won' && (
+          <div className="result-message victory">You win!!</div>
+        )}
+        {gameResult === 'lost' && (
+          <div className="result-message defeat">
+            You lose. :( The word was: "{correctWord}"
           </div>
-        ))}
+        )}
+        {gameResult && (
+          <button type="button" onClick={() => resetGame()}>
+            PLAY AGAIN
+          </button>
+        )}
+
+        <div className="keyboard-container">
+          {keyboardKeys.map((row) => (
+            <div className="keyboard-row" key={uuidv4()}>
+              {row.map((key) => (
+                <div
+                  className={`key ${key.status}`}
+                  onClick={() => handleKeyboardClick(key.key)}
+                  key={uuidv4()}
+                >
+                  {key.key}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
