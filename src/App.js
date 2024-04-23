@@ -1,5 +1,6 @@
 import './App.css'
-import Game from './czubordle/Game/Game'
+import DayZTable from './DayZ/DayZTable'
+import Game from './czubordle/Game'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 const HomeMenu = () => (
@@ -20,7 +21,7 @@ const App = () => (
     <Routes>
       <Route exact path="/" element={<HomeMenu />} />
       <Route path="/czubordle" element={<Game />} />
-      <Route path="/dayzrecipes"></Route>
+      <Route path="/dayzrecipes" element={<DayZTable />}></Route>
     </Routes>
   </Router>
 )

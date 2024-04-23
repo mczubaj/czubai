@@ -140,7 +140,7 @@ const Game = () => {
   return (
     <div>
       <header>CZUBORDLE</header>
-      <div className="container">
+      <div className="game-container">
         <div>
           {submittedWords.map((word) => (
             <div className="word" key={uuidv4()}>

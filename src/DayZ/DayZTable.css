@@ -1,0 +1,11 @@
+.dayz-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #252932;
+  padding: 10px;
+}
+
+.image {
+  border: 1px solid darkslategray;
+}
