@@ -1,4 +1,3 @@
-import './App.css'
 import DayZTable from './DayZ/DayZTable'
 import Game from './czubordle/Game'
 import { Routes, Route, Link } from 'react-router-dom'

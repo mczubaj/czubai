@@ -10,7 +10,7 @@ const DayZTable = () => {
 
   return (
     <div className="dayz-container">
-      {imagePaths.sort().map((path) => (
+      {imagePaths.map((path) => (
         <img
           width="310"
           height="620"
