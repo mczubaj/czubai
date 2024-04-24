@@ -10,16 +10,21 @@ const DayZTable = () => {
 
   return (
     <div className="dayz-container">
-      {imagePaths.map((path) => (
-        <img
-          width="310"
-          height="620"
-          className="image"
-          src={require(`${path}`)}
-          key={path}
-          alt={''}
-        />
-      ))}
+      <header className="dayz-header">
+        DayZ Aftermath Base Building Recipes
+      </header>
+      <div className="dayz-images-container">
+        {imagePaths.map((path) => (
+          <img
+            width="310"
+            height="620"
+            className="image"
+            src={require(`${path}`)}
+            key={path}
+            alt={''}
+          />
+        ))}
+      </div>
     </div>
   )
 }

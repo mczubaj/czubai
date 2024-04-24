@@ -1,9 +1,16 @@
 .dayz-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   background-color: #252932;
   padding: 10px;
+}
+
+.dayz-header {
+  color: darkslategray;
+}
+
+.dayz-images-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .image {
