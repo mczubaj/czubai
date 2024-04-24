@@ -10,9 +10,7 @@ const DayZTable = () => {
 
   return (
     <div className="dayz-container">
-      <header className="dayz-header">
-        DayZ Aftermath Base Building Recipes
-      </header>
+      <header className="dayz-header">DayZ Aftermath Workbench Recipes</header>
       <div className="dayz-images-container">
         {imagePaths.map((path) => (
           <img
