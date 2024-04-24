@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/czubai/static/css/main.7c2fa10b.css",
-    "main.js": "/czubai/static/js/main.e14122be.js",
+    "main.css": "/czubai/static/css/main.6cb61f09.css",
+    "main.js": "/czubai/static/js/main.6f63012f.js",
     "static/media/10.jpg": "/czubai/static/media/10.693b8376ae24f5f6c89e.jpg",
     "static/media/1.jpg": "/czubai/static/media/1.ce5692b809ce24964e99.jpg",
     "static/media/20240423153021_2.jpg": "/czubai/static/media/20240423153021_2.d8141df856b83aa91013.jpg",
@@ -58,11 +58,11 @@
     "static/media/20240423153038_1.jpg": "/czubai/static/media/20240423153038_1.766adccee49d97d5f260.jpg",
     "static/media/20240423153047_1.jpg": "/czubai/static/media/20240423153047_1.91aab9bc1883e30a062e.jpg",
     "index.html": "/czubai/index.html",
-    "main.7c2fa10b.css.map": "/czubai/static/css/main.7c2fa10b.css.map",
-    "main.e14122be.js.map": "/czubai/static/js/main.e14122be.js.map"
+    "main.6cb61f09.css.map": "/czubai/static/css/main.6cb61f09.css.map",
+    "main.6f63012f.js.map": "/czubai/static/js/main.6f63012f.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c2fa10b.css",
-    "static/js/main.e14122be.js"
+    "static/css/main.6cb61f09.css",
+    "static/js/main.6f63012f.js"
   ]
 }
