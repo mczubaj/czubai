@@ -1,7 +1,7 @@
 import './App.css'
 import DayZTable from './DayZ/DayZTable'
 import Game from './czubordle/Game'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 
 const HomeMenu = () => (
   <div>
@@ -17,13 +17,11 @@ const HomeMenu = () => (
 )
 
 const App = () => (
-  <Router>
-    <Routes>
-      <Route exact path="/" element={<HomeMenu />} />
-      <Route path="/czubordle" element={<Game />} />
-      <Route path="/dayzrecipes" element={<DayZTable />}></Route>
-    </Routes>
-  </Router>
+  <Routes>
+    <Route exact path="/" element={<HomeMenu />} />
+    <Route path="/czubordle" element={<Game />} />
+    <Route path="/dayzrecipes" element={<DayZTable />}></Route>
+  </Routes>
 )
 
 export default App
